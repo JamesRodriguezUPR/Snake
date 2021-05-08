@@ -8,7 +8,8 @@ enum Facing { STOP,UP, DOWN, LEFT, RIGHT};
 class Snake: public Entity {
     private:
         Facing facing;
-        ofImage i;
+        ofImage sprite, up, down, left, right;
+        int length;
     public:
         Snake(int,int,int,int);
         virtual void checkCollision();
@@ -19,6 +20,8 @@ class Snake: public Entity {
         virtual void keyReleased(int);
         virtual void mousePressed(int, int, int);
         virtual void reset();
+        virtual void grow();
+        virtual void moveS();
         virtual void die();
         ~Snake();
 };
