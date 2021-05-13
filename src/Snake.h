@@ -8,6 +8,7 @@ enum Facing { STOP,UP, DOWN, LEFT, RIGHT};
 class Snake: public Entity {
     private:
         Facing facing;
+        bool alive = true;
         ofImage sprite, up, down, left, right;
         int length;
     public:

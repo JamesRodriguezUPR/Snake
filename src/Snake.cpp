@@ -34,7 +34,21 @@ void Snake::setFacing(Facing f)
 }
 void Snake::update()
 {
-
+    switch (this->facing)
+    {
+    case Facing::UP:
+        setY(getPos().Y - 1);
+        break;
+    case Facing::DOWN:
+        setY(getPos().Y + 1);
+        break;
+    case Facing::LEFT:
+        setX(getPos().X - 1);
+        break;
+    case Facing::RIGHT:
+        setX(getPos().X + 1);
+        break;
+    }
 }
 void Snake::draw()
 {
