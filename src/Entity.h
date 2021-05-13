@@ -14,7 +14,7 @@ public:
     virtual Coord getPos();
     virtual void setX(int);
     virtual void setY(int);
-    virtual void udate()=0;
+    virtual void update()=0;
     virtual void draw()=0;
     virtual int getWidth();
     virtual int getHeight();

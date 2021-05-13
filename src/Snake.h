@@ -3,7 +3,12 @@
 
 #include "Entity.h"
 
-enum Facing { STOP,UP, DOWN, LEFT, RIGHT};
+enum Facing { 
+    STOP = 0,
+    UP = 1, 
+    DOWN = 2, 
+    LEFT = 3, 
+    RIGHT = 4};
 
 class Snake: public Entity {
     private:
@@ -14,7 +19,7 @@ class Snake: public Entity {
     public:
         Snake(int,int,int,int);
         virtual void checkCollision();
-        virtual void setFacing(Facing);
+        virtual void setFacing(int);
         virtual void update();
         virtual void draw();
         virtual void keyPressed(int);

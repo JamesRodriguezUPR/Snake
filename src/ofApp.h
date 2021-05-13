@@ -1,12 +1,12 @@
 #pragma once
 
 #include "ofMain.h"
-
+#include "Snake.h"
 
 class ofApp : public ofBaseApp{
 
 private:
-
+	Snake *snek;
 
 public:
 		void setup();

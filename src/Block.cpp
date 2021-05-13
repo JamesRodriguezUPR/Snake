@@ -2,7 +2,7 @@
 
 Block::Block(int x,int y,int width,int height):Entity(x,y,width,height)
 {
-    i.load()
+    //i.load()
 }
 void Block::update()
 {

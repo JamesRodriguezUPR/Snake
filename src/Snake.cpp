@@ -14,7 +14,7 @@ void Snake::checkCollision()
 {
 
 }
-void Snake::setFacing(Facing f)
+void Snake::setFacing(int f)
 {
     switch (f)
     {
@@ -34,29 +34,44 @@ void Snake::setFacing(Facing f)
 }
 void Snake::update()
 {
-    switch (this->facing)
-    {
-    case Facing::UP:
-        setY(getPos().Y - 1);
-        break;
-    case Facing::DOWN:
-        setY(getPos().Y + 1);
-        break;
-    case Facing::LEFT:
-        setX(getPos().X - 1);
-        break;
-    case Facing::RIGHT:
-        setX(getPos().X + 1);
-        break;
-    }
+    this->moveS();
+    // switch (this->facing)
+    // {
+    // case Facing::UP:
+    //     setY(getPos().Y - 1);
+    //     break;
+    // case Facing::DOWN:
+    //     setY(getPos().Y + 1);
+    //     break;
+    // case Facing::LEFT:
+    //     setX(getPos().X - 1);
+    //     break;
+    // case Facing::RIGHT:
+    //     setX(getPos().X + 1);
+    //     break;
+    // }
 }
 void Snake::draw()
 {
-
+    switch (this->facing)
+    {
+    case Facing::UP:
+        this->up.draw(getPos().X,getPos().Y);
+        break;
+    case Facing::DOWN:
+        this->down.draw(getPos().X,getPos().Y);
+        break;
+    case Facing::LEFT:
+        this->left.draw(getPos().X,getPos().Y);
+        break;
+    case Facing::RIGHT:
+        this->right.draw(getPos().X,getPos().Y);
+        break;
+    }
 }
-void Snake::keyPressed(int)
+void Snake::keyPressed(int k)
 {
-
+    setFacing(k);
 }
 void Snake::keyReleased(int)
 {
@@ -79,17 +94,18 @@ void Snake::moveS()
     switch (this->facing)
     {
     case Facing::UP:
-        this->setY(this->getPos().Y --);
+        this->setY(this->getPos().Y - 1);
         break;
     case Facing::DOWN:
-        this->setY(this->getPos().Y ++);
+        this->setY(this->getPos().Y + 1);
         break;
     case Facing::LEFT:
-        this->setX(this->getPos().X --);
+        this->setX(this->getPos().X - 1);
         break;
     case Facing::RIGHT:
-        this->setX(this->getPos().X ++);
+        this->setX(this->getPos().X + 1);
         break;
+    case Facing::STOP: break;
     }
 }
 void Snake::die()
