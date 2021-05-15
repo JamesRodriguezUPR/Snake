@@ -9,6 +9,7 @@ class Entity
 private:
     Coord pos;
     int width, height;
+    bool killable;
 public:
     Entity(int, int, int, int);
     virtual Coord getPos();
@@ -16,6 +17,8 @@ public:
     virtual void setY(int);
     virtual void update()=0;
     virtual void draw()=0;
+    virtual bool getKillable();
+    virtual void setkillable(bool);
     virtual int getWidth();
     virtual int getHeight();
     virtual ofRectangle getBounds();

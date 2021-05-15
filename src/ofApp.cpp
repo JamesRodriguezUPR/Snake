@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	ofSetFrameRate(30);
+	ofSetFrameRate(10);
 	ofSetWindowTitle("Snake Game");
 	ofSetBackgroundColor(0,0,0);
 	snek = new Snake( 500, 375, 20, 20);

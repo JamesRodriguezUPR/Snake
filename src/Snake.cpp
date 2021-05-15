@@ -30,26 +30,15 @@ void Snake::setFacing(int f)
     case 'a':
         this->facing = LEFT;
         break;
+    case 'x':
+        this->facing = STOP;
+        break;
     }
 }
 void Snake::update()
 {
     this->moveS();
-    // switch (this->facing)
-    // {
-    // case Facing::UP:
-    //     setY(getPos().Y - 1);
-    //     break;
-    // case Facing::DOWN:
-    //     setY(getPos().Y + 1);
-    //     break;
-    // case Facing::LEFT:
-    //     setX(getPos().X - 1);
-    //     break;
-    // case Facing::RIGHT:
-    //     setX(getPos().X + 1);
-    //     break;
-    // }
+
 }
 void Snake::draw()
 {
@@ -67,6 +56,9 @@ void Snake::draw()
     case Facing::RIGHT:
         this->right.draw(getPos().X,getPos().Y);
         break;
+    case Facing::STOP:
+        this->up.draw(getPos().X,getPos().Y);
+        break;
     }
 }
 void Snake::keyPressed(int k)
@@ -83,7 +75,8 @@ void Snake::mousePressed(int, int, int)
 }
 void Snake::reset()
 {
-
+    this->alive=true;
+    setFacing('x');
 }
 void Snake::grow()
 {
@@ -94,23 +87,23 @@ void Snake::moveS()
     switch (this->facing)
     {
     case Facing::UP:
-        this->setY(this->getPos().Y - 1);
+        this->setY(this->getPos().Y - 21);
         break;
     case Facing::DOWN:
-        this->setY(this->getPos().Y + 1);
+        this->setY(this->getPos().Y + 21);
         break;
     case Facing::LEFT:
-        this->setX(this->getPos().X - 1);
+        this->setX(this->getPos().X - 21);
         break;
     case Facing::RIGHT:
-        this->setX(this->getPos().X + 1);
+        this->setX(this->getPos().X + 21);
         break;
     case Facing::STOP: break;
     }
 }
 void Snake::die()
 {
-
+    this->alive = false;
 }
 Snake::~Snake()
 {

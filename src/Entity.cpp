@@ -19,6 +19,14 @@ void Entity::setY(int y)
 {
     this->pos.Y = y;
 }
+bool Entity::getKillable()
+{
+    return this->killable;
+}
+void Entity::setkillable(bool b)
+{
+    this->killable = b;
+}
 int Entity::getWidth()
 {
  return this->width;

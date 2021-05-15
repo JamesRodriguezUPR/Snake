@@ -2,10 +2,13 @@
 
 #include "ofMain.h"
 #include "Snake.h"
+#include "Block.h"
+#include <vector>
 
 class ofApp : public ofBaseApp{
 
 private:
+	vector<Block> blocks;
 	Snake *snek;
 
 public:
