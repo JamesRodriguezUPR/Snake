@@ -28,6 +28,7 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
+	this->checkCollision();
 	snek->update();
 }
 
@@ -39,6 +40,19 @@ void ofApp::draw()
 		b->draw();
 	}
 	snek->draw();
+}
+
+//--------------------------------------------------------------
+void ofApp::checkCollision()
+{
+	for(Block* b: blocks)
+	{
+		if(snek->collides(b))
+		{
+			snek->die();
+			break;
+		}
+	}
 }
 
 //--------------------------------------------------------------
