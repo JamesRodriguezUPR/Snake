@@ -10,10 +10,6 @@ Snake::Snake(int x, int y, int width, int height):Entity(x,y,width,height)
     this->down.cropFrom(sprite, 0, 20, 20, 20);
     this->right.cropFrom(sprite, 0, 60, 20, 20);
 }
-void Snake::checkCollision()
-{
-
-}
 void Snake::setFacing(int f)
 {
     switch (f)
@@ -37,30 +33,34 @@ void Snake::setFacing(int f)
 }
 void Snake::update()
 {
-    this->moveS();
+    if(alive) this->moveS();
 
 }
 void Snake::draw()
 {
-    switch (this->facing)
+    if(alive)
     {
-    case Facing::UP:
-        this->up.draw(getPos().X,getPos().Y);
-        break;
-    case Facing::DOWN:
-        this->down.draw(getPos().X,getPos().Y);
-        break;
-    case Facing::LEFT:
-        this->left.draw(getPos().X,getPos().Y);
-        break;
-    case Facing::RIGHT:
-        this->right.draw(getPos().X,getPos().Y);
-        break;
-    case Facing::STOP:
-        this->up.draw(getPos().X,getPos().Y);
-        break;
+        switch (this->facing)
+        {
+            case Facing::UP:
+                this->up.draw(getPos().X,getPos().Y);
+                break;
+            case Facing::DOWN:
+                this->down.draw(getPos().X,getPos().Y);
+                break;
+            case Facing::LEFT:
+                this->left.draw(getPos().X,getPos().Y);
+                break;
+            case Facing::RIGHT:
+                this->right.draw(getPos().X,getPos().Y);
+                break;
+            case Facing::STOP:
+                this->up.draw(getPos().X,getPos().Y);
+                break;
+        }
     }
 }
+
 void Snake::keyPressed(int k)
 {
     setFacing(k);

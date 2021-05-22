@@ -18,7 +18,6 @@ class Snake: public Entity {
         int length;
     public:
         Snake(int,int,int,int);
-        virtual void checkCollision();
         virtual void setFacing(int);
         virtual void update();
         virtual void draw();
