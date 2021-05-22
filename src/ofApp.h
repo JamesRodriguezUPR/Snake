@@ -8,7 +8,7 @@
 class ofApp : public ofBaseApp{
 
 private:
-	vector<Block> blocks;
+	vector<Block*> blocks;
 	Snake *snek;
 
 public:
